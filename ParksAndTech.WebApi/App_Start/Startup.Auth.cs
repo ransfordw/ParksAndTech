@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using ParksAndTech.WebApi.Providers;
 using ParksAndTech.WebApi.Models;
+using ParksAndTech.Data;
 
 namespace ParksAndTech.WebApi
 {
