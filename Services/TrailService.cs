@@ -12,14 +12,19 @@ namespace Services
 {
     public class TrailService : ITrailService
     {
-        private readonly Guid _userId;
+        private readonly Guid _userID;
+
+        public TrailService(Guid userID)
+        {
+            _userID = userID;
+        }
 
         public bool CreateTrail(TrailCreate model)
         {
             var entity =
                 new Trail()
                 {
-                    OwnerID = _userId,
+                    OwnerID = _userID,
                     TrailID = model.TrailID,
                     TrailName = model.TrailName,
                     TrailDifficulty =model.TrailDifficulty,
@@ -42,7 +47,7 @@ namespace Services
                 var entity =
                     ctx
                         .Trails
-                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userId);
+                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userID);
 
                 ctx.Trails.Remove(entity);
 
@@ -57,13 +62,13 @@ namespace Services
                 var query =
                     ctx
                         .Trails
-                        .Where(e => e.OwnerID == _userId)
+                        .Where(e => e.OwnerID == _userID)
                         .Select(
                             e =>
                                 new TrailListItem
                                 {
                                     TrailID = e.TrailID,
-                                    OwnerID = _userId,
+                                    OwnerID = _userID,
                                     ParkID = e.ParkID,
                                     TrailName = e.TrailName,
                                     TrailDifficulty = e.TrailDifficulty,
@@ -83,12 +88,12 @@ namespace Services
                 var entity =
                     ctx
                         .Trails
-                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userId);
+                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userID);
                 return
                     new TrailDetail
                     {
                         TrailID = entity.TrailID,
-                        OwnerID = _userId,
+                        OwnerID = _userID,
                         ParkID = entity.ParkID,
                         TrailName = entity.TrailName,
                         TrailDifficulty = entity.TrailDifficulty,
@@ -106,7 +111,7 @@ namespace Services
                 var entity =
                     ctx
                         .Trails
-                        .Single(e => e.TrailID == model.TrailID && e.OwnerID == _userId);
+                        .Single(e => e.TrailID == model.TrailID && e.OwnerID == _userID);
 
                 entity.TrailID = model.TrailID;
                 entity.ParkID = model.ParkID;
