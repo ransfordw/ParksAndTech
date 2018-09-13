@@ -4,6 +4,7 @@ using Models.TrailModels;
 using ParksAndTech.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace Services
     public class TrailService : ITrailService
     {
         private readonly Guid _userID;
+        private ParkService _parkService;
 
         public TrailService(Guid userID)
         {
             _userID = userID;
+            _parkService = new ParkService(_userID);
         }
 
         public bool CreateTrail(TrailCreate model)
@@ -63,6 +66,7 @@ namespace Services
                     ctx
                         .Trails
                         .Where(e => e.OwnerID == _userID)
+                        .Include(e => e.ParkID)
                         .Select(
                             e =>
                                 new TrailListItem
@@ -70,6 +74,7 @@ namespace Services
                                     TrailID = e.TrailID,
                                     OwnerID = _userID,
                                     ParkID = e.ParkID,
+                                    ParkName = e.Park.ParkName,
                                     TrailName = e.TrailName,
                                     TrailDifficulty = e.TrailDifficulty,
                                     TrailDistance = e.TrailDistance,
@@ -95,6 +100,7 @@ namespace Services
                         TrailID = entity.TrailID,
                         OwnerID = _userID,
                         ParkID = entity.ParkID,
+                        ParkName = entity.Park.ParkName,
                         TrailName = entity.TrailName,
                         TrailDifficulty = entity.TrailDifficulty,
                         TrailDistance = entity.TrailDistance,
