@@ -19,6 +19,11 @@ namespace Services
             _userID = userID;
         }
 
+        public TrailService(Guid userID)
+        {
+            _userId = userID;
+        }
+
         public bool CreateTrail(TrailCreate model)
         {
             var entity =
