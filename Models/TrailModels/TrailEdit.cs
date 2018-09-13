@@ -22,9 +22,10 @@ namespace Models.TrailModels
         public Difficulty TrailDifficulty { get; set; }
         [Required]
         public bool IsOpen { get; set; }
+
         [Required]
         public int ParkID { get; set; }
-
+        public string ParkName { get; set; }
         public virtual Park Park { get; set; }
     }
 }
