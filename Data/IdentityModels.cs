@@ -43,6 +43,10 @@ namespace ParksAndTech.Data
                 .Remove<PluralizingTableNameConvention>();
 
             modelBuilder
+                 .Conventions
+                 .Remove<OneToManyCascadeDeleteConvention>();
+
+            modelBuilder
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
