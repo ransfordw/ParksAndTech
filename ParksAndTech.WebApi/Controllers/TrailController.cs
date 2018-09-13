@@ -31,12 +31,12 @@ namespace ParksAndTech.WebApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-​
+
             var service = CreateTrailService();
-​
+            
             if (!service.CreateTrail(trail))
                 return InternalServerError();
-​
+            
             return Ok();
         }
 
@@ -44,22 +44,22 @@ namespace ParksAndTech.WebApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-​
+            
             var service = CreateTrailService();
-​
+            
             if (!service.UpdateTrail(trail))
                 return InternalServerError();
-​
+            
             return Ok();
         }
 
         public IHttpActionResult Delete(int id)
         {
             var service = CreateTrailService();
-​
+            
             if (!service.DeleteTrail(id))
                 return InternalServerError();
-​
+            
             return Ok();
         }
 
