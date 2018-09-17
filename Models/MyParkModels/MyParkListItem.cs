@@ -11,6 +11,9 @@ namespace Models.MyParkModels
     public class MyParkListItem
     {
         [Required]
+        public int MyParkID { get; set; }
+
+        [Required]
         [Display(Name = "Park Name")]
         public int ParkID { get; set; }
         public string ParkName { get; set; }
