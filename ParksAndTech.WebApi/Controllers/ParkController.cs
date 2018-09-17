@@ -50,7 +50,6 @@ namespace ParksAndTech.WebApi.Controllers
             if (!service.UpdatePark(park))
                 return InternalServerError();
 
-
             return Ok();
         }
 
