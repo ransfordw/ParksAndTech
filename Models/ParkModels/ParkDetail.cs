@@ -41,6 +41,5 @@ namespace Models.ParkModels
         public string ParkDescription { get; set; }
 
         public override string ToString() => $"[{ParkID}] {ParkName}";
-
     }
 }
