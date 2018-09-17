@@ -12,10 +12,14 @@ namespace Models.MyParkModels
     {
         [Required]
         public int ParkID { get; set; }
+
+        [Required]
         public string ParkName { get; set; }
 
         [Required]
         public int TrailID { get; set; }
+
+        [Required]
         public string TrailName { get; set; }
 
         [Required]
