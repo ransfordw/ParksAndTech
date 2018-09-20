@@ -28,7 +28,6 @@ namespace Services
                 new Trail()
                 {
                     OwnerID = _userID,
-                    TrailID = model.TrailID,
                     TrailName = model.TrailName,
                     TrailDifficulty =model.TrailDifficulty,
                     TrailDistance = model.TrailDistance,
@@ -72,7 +71,6 @@ namespace Services
                                 new TrailListItem
                                 {
                                     TrailID = e.TrailID,
-                                    OwnerID = _userID,
                                     ParkID = e.ParkID,
                                     ParkName = e.Park.ParkName,
                                     TrailName = e.TrailName,
@@ -98,7 +96,6 @@ namespace Services
                     new TrailDetail
                     {
                         TrailID = entity.TrailID,
-                        OwnerID = _userID,
                         ParkID = entity.ParkID,
                         ParkName = entity.Park.ParkName,
                         TrailName = entity.TrailName,
@@ -121,7 +118,6 @@ namespace Services
 
                 entity.TrailID = model.TrailID;
                 entity.ParkID = model.ParkID;
-                entity.OwnerID = model.OwnerID;
                 entity.TrailName = model.TrailName;
                 entity.TrailDifficulty = model.TrailDifficulty;
                 entity.TrailDistance = model.TrailDistance;

@@ -11,12 +11,6 @@ namespace Models.TrailModels
     public class TrailCreate
     {
         [Required]
-        public int TrailID { get; set; }
-
-        [Required]
-        public Guid OwnerID { get; set; }
-
-        [Required]
         public string TrailName { get; set; }
 
         [Required]
@@ -34,6 +28,6 @@ namespace Models.TrailModels
 
         public override string ToString() => TrailName;
 
-        public virtual Park Park { get; set; }
+        //public virtual Park Park { get; set; }
     }
 }

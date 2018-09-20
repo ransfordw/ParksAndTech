@@ -14,9 +14,6 @@ namespace Models.TrailModels
         public int TrailID { get; set; }
 
         [Required]
-        public Guid OwnerID { get; set; }
-
-        [Required]
         public string TrailName { get; set; }
 
         [Required]
@@ -32,6 +29,6 @@ namespace Models.TrailModels
         public int ParkID { get; set; }
         public string ParkName { get; set; }
 
-        public virtual Park Park { get; set; }
+        //public virtual Park Park { get; set; }
     }
 }
