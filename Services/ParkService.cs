@@ -52,6 +52,7 @@ namespace Services
                         .Parks
                         .Single(e => e.ParkID == model.ParkID && e.OwnerID == _userID);
 
+                entity.ParkID = model.ParkID;
                 entity.ParkName = model.ParkName;
                 entity.ParkCost = model.ParkCost;
                 entity.ParkAddress = model.ParkAddress;
