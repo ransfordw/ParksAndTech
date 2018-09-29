@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Data
 {
     public enum Difficulty { Easy =1, Moderate, Challenging}
+    public enum Condition { Open =1, Closed, Construction, Weather}
     public class Trail
     {
         [Key]
@@ -21,7 +22,7 @@ namespace Data
         [Required]
         public Difficulty TrailDifficulty { get; set; }
         [Required]
-        public bool IsOpen { get; set; }
+        public Condition TrailCondition { get; set; }
         [Required]
         public int ParkID { get; set; }
 

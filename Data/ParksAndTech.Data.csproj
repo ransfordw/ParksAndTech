@@ -55,6 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201809131842219_InitialCreate.cs" />
+    <Compile Include="Migrations\201809131842219_InitialCreate.Designer.cs">
+      <DependentUpon>201809131842219_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809291857054_updatedTrailConditionToEnum.cs" />
+    <Compile Include="Migrations\201809291857054_updatedTrailConditionToEnum.Designer.cs">
+      <DependentUpon>201809291857054_updatedTrailConditionToEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyPark.cs" />
     <Compile Include="Park.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +72,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809131842219_InitialCreate.resx">
+      <DependentUpon>201809131842219_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809291857054_updatedTrailConditionToEnum.resx">
+      <DependentUpon>201809291857054_updatedTrailConditionToEnum.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
