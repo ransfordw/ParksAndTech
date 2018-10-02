@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+
+    <Compile Include="Migrations\201809291857054_updatedTrailConditionToEnum.cs" />
+    <Compile Include="Migrations\201809291857054_updatedTrailConditionToEnum.Designer.cs">
+      <DependentUpon>201809291857054_updatedTrailConditionToEnum.cs</DependentUpon>
     <Compile Include="Migrations\201809261349344_InitialCreate.cs" />
     <Compile Include="Migrations\201809261349344_InitialCreate.Designer.cs">
       <DependentUpon>201809261349344_InitialCreate.cs</DependentUpon>
@@ -78,6 +82,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+
+    <EmbeddedResource Include="Migrations\201809291857054_updatedTrailConditionToEnum.resx">
+      <DependentUpon>201809291857054_updatedTrailConditionToEnum.cs</DependentUpon>
     <EmbeddedResource Include="Migrations\201809261349344_InitialCreate.resx">
       <DependentUpon>201809261349344_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>

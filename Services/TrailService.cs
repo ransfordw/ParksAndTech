@@ -31,7 +31,7 @@ namespace Services
                     TrailName = model.TrailName,
                     TrailDifficulty =model.TrailDifficulty,
                     TrailDistance = model.TrailDistance,
-                    IsOpen = model.IsOpen,
+                    TrailCondition = model.TrailCondition,
                     ParkID = model.ParkID
                 };
 
@@ -76,7 +76,7 @@ namespace Services
                                     TrailName = e.TrailName,
                                     TrailDifficulty = e.TrailDifficulty,
                                     TrailDistance = e.TrailDistance,
-                                    IsOpen = e.IsOpen,
+                                    TrailCondition = e.TrailCondition,
                                 }
                         );
 
@@ -101,7 +101,7 @@ namespace Services
                         TrailName = entity.TrailName,
                         TrailDifficulty = entity.TrailDifficulty,
                         TrailDistance = entity.TrailDistance,
-                        IsOpen = entity.IsOpen,
+                        TrailCondition = entity.TrailCondition,
 
                     };
             }
@@ -121,7 +121,7 @@ namespace Services
                 entity.TrailName = model.TrailName;
                 entity.TrailDifficulty = model.TrailDifficulty;
                 entity.TrailDistance = model.TrailDistance;
-                entity.IsOpen = model.IsOpen;
+                entity.TrailCondition = model.TrailCondition;
 
                 return ctx.SaveChanges() == 1;
             }
