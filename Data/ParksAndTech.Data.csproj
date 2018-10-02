@@ -55,13 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201809131842219_InitialCreate.cs" />
-    <Compile Include="Migrations\201809131842219_InitialCreate.Designer.cs">
-      <DependentUpon>201809131842219_InitialCreate.cs</DependentUpon>
-    </Compile>
+
     <Compile Include="Migrations\201809291857054_updatedTrailConditionToEnum.cs" />
     <Compile Include="Migrations\201809291857054_updatedTrailConditionToEnum.Designer.cs">
       <DependentUpon>201809291857054_updatedTrailConditionToEnum.cs</DependentUpon>
+    <Compile Include="Migrations\201809261349344_InitialCreate.cs" />
+    <Compile Include="Migrations\201809261349344_InitialCreate.Designer.cs">
+      <DependentUpon>201809261349344_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809261405346_addedParkName.cs" />
+    <Compile Include="Migrations\201809261405346_addedParkName.Designer.cs">
+      <DependentUpon>201809261405346_addedParkName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809261430521_deletedparkName.cs" />
+    <Compile Include="Migrations\201809261430521_deletedparkName.Designer.cs">
+      <DependentUpon>201809261430521_deletedparkName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyPark.cs" />
@@ -74,11 +82,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809131842219_InitialCreate.resx">
-      <DependentUpon>201809131842219_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
+
     <EmbeddedResource Include="Migrations\201809291857054_updatedTrailConditionToEnum.resx">
       <DependentUpon>201809291857054_updatedTrailConditionToEnum.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809261349344_InitialCreate.resx">
+      <DependentUpon>201809261349344_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809261405346_addedParkName.resx">
+      <DependentUpon>201809261405346_addedParkName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809261430521_deletedparkName.resx">
+      <DependentUpon>201809261430521_deletedparkName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -24,7 +24,6 @@ namespace Models.TrailModels
 
         [Required]
         public int ParkID { get; set; }
-        public string ParkName { get; set; }
 
         public override string ToString() => TrailName;
 
