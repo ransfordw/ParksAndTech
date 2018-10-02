@@ -120,8 +120,8 @@ namespace Services
                 entity.MyParkID = model.MyParkID;
                 entity.ParkID = model.ParkID;
                 entity.TrailID = model.TrailID;
-                entity.MyTrailStatus = entity.MyTrailStatus;
-                entity.TrailComment = entity.TrailComment;
+                entity.MyTrailStatus = model.MyTrailStatus;
+                entity.TrailComment = model.TrailComment;
 
                 return ctx.SaveChanges() == 1;
             };

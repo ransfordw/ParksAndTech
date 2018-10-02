@@ -20,7 +20,7 @@ namespace Models.TrailModels
         public Difficulty TrailDifficulty { get; set; }
 
         [Required]
-        public bool IsOpen { get; set; }
+        public Condition TrailCondition { get; set; }
 
         [Required]
         public int ParkID { get; set; }
