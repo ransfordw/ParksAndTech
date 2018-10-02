@@ -4,6 +4,7 @@ using Models.TrailModels;
 using ParksAndTech.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,15 +13,21 @@ namespace Services
 {
     public class TrailService : ITrailService
     {
-        private readonly Guid _userId;
+        private readonly Guid _userID;
+        private ParkService _parkService;
+
+        public TrailService(Guid userID)
+        {
+            _userID = userID;
+            _parkService = new ParkService(_userID);
+        }
 
         public bool CreateTrail(TrailCreate model)
         {
             var entity =
                 new Trail()
                 {
-                    OwnerID = _userId,
-                    TrailID = model.TrailID,
+                    OwnerID = _userID,
                     TrailName = model.TrailName,
                     TrailDifficulty =model.TrailDifficulty,
                     TrailDistance = model.TrailDistance,
@@ -42,7 +49,7 @@ namespace Services
                 var entity =
                     ctx
                         .Trails
-                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userId);
+                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userID);
 
                 ctx.Trails.Remove(entity);
 
@@ -57,14 +64,15 @@ namespace Services
                 var query =
                     ctx
                         .Trails
-                        .Where(e => e.OwnerID == _userId)
+                        .Where(e => e.OwnerID == _userID)
+                        .Include(e => e.ParkID)
                         .Select(
                             e =>
                                 new TrailListItem
                                 {
                                     TrailID = e.TrailID,
-                                    OwnerID = _userId,
                                     ParkID = e.ParkID,
+                                    ParkName = e.Park.ParkName,
                                     TrailName = e.TrailName,
                                     TrailDifficulty = e.TrailDifficulty,
                                     TrailDistance = e.TrailDistance,
@@ -83,13 +91,13 @@ namespace Services
                 var entity =
                     ctx
                         .Trails
-                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userId);
+                        .Single(e => e.TrailID == TrailID && e.OwnerID == _userID);
                 return
                     new TrailDetail
                     {
                         TrailID = entity.TrailID,
-                        OwnerID = _userId,
                         ParkID = entity.ParkID,
+                        ParkName = entity.Park.ParkName,
                         TrailName = entity.TrailName,
                         TrailDifficulty = entity.TrailDifficulty,
                         TrailDistance = entity.TrailDistance,
@@ -106,11 +114,10 @@ namespace Services
                 var entity =
                     ctx
                         .Trails
-                        .Single(e => e.TrailID == model.TrailID && e.OwnerID == _userId);
+                        .Single(e => e.TrailID == model.TrailID && e.OwnerID == _userID);
 
                 entity.TrailID = model.TrailID;
                 entity.ParkID = model.ParkID;
-                entity.OwnerID = model.OwnerID;
                 entity.TrailName = model.TrailName;
                 entity.TrailDifficulty = model.TrailDifficulty;
                 entity.TrailDistance = model.TrailDistance;

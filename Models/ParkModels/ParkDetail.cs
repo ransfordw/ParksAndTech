@@ -10,37 +10,36 @@ namespace Models.ParkModels
 {
     public class ParkDetail
     {
-        [Display(Name = "Park ID")]
+        [Required]
         public int ParkID { get; set; }
 
-        [Display(Name = "Park Name")]
+        [Required]
         public string ParkName { get; set; }
 
-        [Display(Name = "Cost")]
+        [Required]
         public decimal ParkCost { get; set; }
 
-        [Display(Name = "Address")]
+        [Required]
         public string ParkAddress { get; set; }
 
-        [Display(Name = "City")]
+        [Required]
         public string ParkCity { get; set; }
 
-        [Display(Name = "State")]
+        [Required]
         public State ParkState { get; set; }
 
-        [Display(Name = "Zip")]
+        [Required]
         public int ParkZip { get; set; }
 
-        [Display(Name = "Phone")]
+        [Required]
         public string ParkPhone { get; set; }
 
-        [Display(Name = "Website")]
+        [Required]
         public string ParkWebsite { get; set; }
 
-        [Display(Name = "Description")]
+        [Required]
         public string ParkDescription { get; set; }
 
         public override string ToString() => $"[{ParkID}] {ParkName}";
-
     }
 }
