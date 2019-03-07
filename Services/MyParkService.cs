@@ -14,8 +14,8 @@ namespace Services
     public class MyParkService : IMyParkService
     {
         private readonly Guid _userID;
-        private ParkService _parkService;
-        private TrailService _trailService;
+        private readonly ParkService _parkService;
+        private readonly TrailService _trailService;
 
         public MyParkService(Guid userID)
         {
